@@ -61,3 +61,39 @@ public int evalRPN(String[] tokens) {
 ```
 
 **Time Complexity:** O(n) | **Space Complexity:** O(n)
+
+---
+
+## 3. Car Fleet (LeetCode 853)
+
+**Problem:** You are given the target position, the positions of each car, and their speeds. Each car moves toward the target. Cars that catch up to the car ahead form a fleet. Return the number of fleets.
+
+**Approach:** Sort cars by position in descending order. Compute the time each car needs to reach the target. Traverse from the nearest car to the target and maintain a stack of fleet times. If the current car reaches the target no slower than the previous fleet, it joins the same fleet; otherwise, it starts a new fleet.
+
+```java
+public int carFleet(int target, int[] position, int[] speed) {
+    int[][] cars = new int[position.length][2];
+
+    for (int i = 0; i < position.length; i++) {
+        cars[i][0] = position[i];
+        cars[i][1] = speed[i];
+    }
+
+    Arrays.sort(cars, (a, b) -> Integer.compare(b[0], a[0]));
+
+    java.util.Stack<Double> stack = new java.util.Stack<>();
+
+    for (int[] car : cars) {
+        double time = (double) (target - car[0]) / car[1];
+        stack.push(time);
+
+        if (stack.size() >= 2 && stack.peek() <= stack.get(stack.size() - 2)) {
+            stack.pop();
+        }
+    }
+
+    return stack.size();
+}
+```
+
+**Time Complexity:** O(n log n) | **Space Complexity:** O(n)
