@@ -11,6 +11,7 @@ A collection of LeetCode solutions organized by topic.
 | 20 | [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) | [Java](stack/ValidParetheses.java) |
 | 150 | [Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/) | [Java](stack/evalRPN.java) |
 | 853 | [Car Fleet](https://leetcode.com/problems/car-fleet/) | [Java](stack/carFleet.java) |
+| 84 | [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/description/) | [Java](stack/LargestHistogram.java) |
 
 ---
 
